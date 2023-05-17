@@ -5,7 +5,7 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
 import useStyles from './styles';
 
-const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
+const List = ({ places, type, setType, rating, setRating, childClicked, isLoading }) => {
     // hook
     const classes = useStyles();
     const [elRefs, setElRefs] = useState([]);
@@ -44,17 +44,19 @@ const List = ({ places, childClicked, isLoading, type, setType, rating, setRatin
                             <MenuItem value="4.5">Above 4.5</MenuItem>
                         </Select>
                     </FormControl>
-                    <Grid container spacing={3} className={classes.List}>
-                        {places?.map((place, i) => (
-                            <Grid ref={elRefs[i]} key={i} item xs={12}>
-                                <PlaceDetails 
-                                    place={place} 
-                                    selected={Number(childClicked) === i}
-                                    refProp={elRefs[i]}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
+                    <div style={{ height: '1400px', overflow: 'auto' }}>
+                        <Grid container spacing={3} className={classes.List}>
+                            {places?.map((place, i) => (
+                                <Grid ref={elRefs[i]} key={i} item xs={12}>
+                                    <PlaceDetails 
+                                        place={place} 
+                                        selected={Number(childClicked) === i}
+                                        refProp={elRefs[i]}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </div>
                 </>
             )}
         </div>
