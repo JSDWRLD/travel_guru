@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/travel-guru/static/js/main.84df7b0f.js",
-    "index.html": "/travel-guru/index.html",
-    "main.84df7b0f.js.map": "/travel-guru/static/js/main.84df7b0f.js.map"
+    "main.js": "/travel_guru/static/js/main.84df7b0f.js",
+    "index.html": "/travel_guru/index.html",
+    "main.84df7b0f.js.map": "/travel_guru/static/js/main.84df7b0f.js.map"
   },
   "entrypoints": [
     "static/js/main.84df7b0f.js"
