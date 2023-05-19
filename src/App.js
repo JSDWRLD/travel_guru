@@ -48,33 +48,35 @@ const App = () => {
         } , [type, bounds]);
 
     return (
-        <>
-            <CssBaseline />
-            <Header setCoordinates={setCoordinates} />
-            <Grid container spacing = {3} style = {{width: '100%'}}>
-                {/* makes sure that the map takes the majority of the page */}
-                <Grid item xs={12} md={4}>
-                    <List 
-                        places={filteredPlaces.length ? filteredPlaces : places} 
-                        childClicked={childClicked}
-                        isLoading={isLoading}
-                        type={type}
-                        setType={setType}
-                        rating={rating}
-                        setRating={setRating}
-                    />
+        <Router basename={process.env.REACT_APP_URI}>
+            <>
+                <CssBaseline />
+                <Header setCoordinates={setCoordinates} />
+                <Grid container spacing = {3} style = {{width: '100%'}}>
+                    {/* makes sure that the map takes the majority of the page */}
+                    <Grid item xs={12} md={4}>
+                        <List 
+                            places={filteredPlaces.length ? filteredPlaces : places} 
+                            childClicked={childClicked}
+                            isLoading={isLoading}
+                            type={type}
+                            setType={setType}
+                            rating={rating}
+                            setRating={setRating}
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={8}>
+                        <Map 
+                            setCoordinates={setCoordinates}
+                            setBounds={setBounds}
+                            coordinates={coordinates}
+                            places={filteredPlaces.length ? filteredPlaces : places}
+                            setChildClicked={setChildClicked}
+                        />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} md={8}>
-                    <Map 
-                        setCoordinates={setCoordinates}
-                        setBounds={setBounds}
-                        coordinates={coordinates}
-                        places={filteredPlaces.length ? filteredPlaces : places}
-                        setChildClicked={setChildClicked}
-                    />
-                </Grid>
-            </Grid>
-        </>
+            </>
+        </Router>
     );
 }
 
